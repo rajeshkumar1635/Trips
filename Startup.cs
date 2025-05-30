@@ -28,7 +28,7 @@ namespace Trips
             {
                 configuration.RootPath = "ClientApp/build";
             });
-            services.AddTransient<ITripService, TripService>();
+            services.AddSingleton<ITripService, TripService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
