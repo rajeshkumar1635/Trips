@@ -17,7 +17,8 @@ namespace Trips.Controllers
         {
             var trips = _service.GetAllTrips();
             return Ok(trips);
-      }
+        }
+
         [HttpPost("AddTrip")]
         public IActionResult AddTrip([FromBody] Trip trip)
         {
@@ -28,6 +29,15 @@ namespace Trips.Controllers
             return Ok();
         }
 
+        [HttpPut("UpdateTrip/{tripId}")]
+        public IActionResult UpdateTrip(int tripId, [FromBody] Trip trip)
+        {
+            if (trip != null)
+            {
+                _service.UpdateTrip(tripId, trip);
+            }
+            return Ok();
+        }
       
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Trips.Data
 {
@@ -26,7 +27,14 @@ namespace Trips.Data
 
         public void UpdateTrip(int tripId, Trip trip)
         {
-            throw new System.NotImplementedException();
+            var oldtrip = Data.Trips.FirstOrDefault(n => n.Id == tripId);
+            if(oldtrip != null)
+            {
+                oldtrip.Name = trip.Name;
+                oldtrip.Description = trip.Description;
+                oldtrip.DateStarted = trip.DateStarted;
+                oldtrip.DateCompleted = trip.DateCompleted;
+            }
         }
     }
 }
